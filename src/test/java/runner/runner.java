@@ -8,8 +8,10 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features="src//test//resources//login.feature",
+		features="src/test/resources/verifyThePolicyflow.feature",
 		glue="stepDifinitions"
+	//	,dryRun= true
+		
 		
 		)
 

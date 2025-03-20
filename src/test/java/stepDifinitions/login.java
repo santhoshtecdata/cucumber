@@ -1,10 +1,5 @@
 package stepDifinitions;
 
-
-import org.openqa.selenium.support.PageFactory;
-
-
-
 import driverManager.webdriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -13,15 +8,12 @@ import io.cucumber.java.en.When;
 
 public class login{
 
-
-
-
 	
 	@Given("open the browser")
 	public void open_the_browser() {
 	    
 		webdriver.getDriver().get("https://vizzainsurance.com/home");
-		POM.careLogin l = PageFactory.initElements(webdriver.getDriver(),POM.careLogin.class);
+		
 		POM.careLogin.getIns().getLoginBtn().click();
 		POM.careLogin.getIns().getPosLink().click();
 	}
@@ -40,5 +32,6 @@ public class login{
 	  POM.careLogin.getIns().getSupmitBtn().click();
 
 	}
+	
 
 }

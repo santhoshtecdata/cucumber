@@ -149,10 +149,10 @@ public class Base {
 	public static void window(int window) {
 		Set<String> all =driver.getWindowHandles();
 		List<String> all_window=new ArrayList(all);
-		driver.switchTo().window(all_window.get(window));
+		webdriver.getDriver().switchTo().window(all_window.get(window));
 	}
 	public void waiting(int time) {
-		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+		webdriver.getDriver().manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
 	public void list( WebElement ele,String text) {
 		Select s= new Select(ele);
@@ -160,7 +160,7 @@ public class Base {
 
 	}
 	
-public void scroll(int no)  {
+public static void scroll(int no)  {
 		Robot r1 = null;
 		try {
 			r1 = new Robot();
@@ -170,7 +170,7 @@ public void scroll(int no)  {
 		}
 		r1.keyPress(KeyEvent.VK_ALT);
 		for(int i = 0;i<=no;++i) {
-			driver.findElement(By.xpath("html")) .sendKeys(Keys.ARROW_DOWN);
+			webdriver.getDriver().findElement(By.xpath("html")) .sendKeys(Keys.ARROW_DOWN);
 		}
 		r1.keyRelease(KeyEvent.VK_ALT);
 	}
@@ -178,11 +178,11 @@ public void scroll(int no)  {
 
 	public void select(WebElement w ,String value) throws InterruptedException {
 		w.click();
-		WebElement search =driver.findElement(By.xpath("//input[@name='search-text']"));
+		WebElement search =webdriver.getDriver().findElement(By.xpath("//input[@name='search-text']"));
 		search.click();
 		Thread.sleep(1000);
 		search.sendKeys(value);
-		driver.findElement(By.xpath("//ul[@class='available-items']/child::li")).click();
+		webdriver.getDriver().findElement(By.xpath("//ul[@class='available-items']/child::li")).click();
 
 	}
 
@@ -230,6 +230,13 @@ public static void payload() {
       
        proxy.stop();
 }
-
+public static void ha() {
+	try {
+		Thread.sleep(500);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
 
 }

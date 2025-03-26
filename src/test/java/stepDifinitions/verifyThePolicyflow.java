@@ -40,7 +40,7 @@ public void fill_and_get_quote() {
 	Base.until(1);
 	
 	proposerPopupDetails p = new proposerPopupDetails ();
-	p.give_the_propoder_name();
+	 careQuotePage.getIns().getPopupNmae().sendKeys("SANTHOSH");
 	p.give_the_proposer_email_id();
 	p.give_the_proposer_phone_number();
 	Base.scroll(4);
@@ -66,20 +66,15 @@ public void fill_and_get_quote() {
 @Given("select the care plan")
 public void select_the_care_plan() {
 	Base.until(1);
+	for(int i = 0;i<=3;++i) {
+		webdriver.getDriver().findElement(By.xpath("html")) .sendKeys(Keys.ARROW_UP);
+	}
 	careProductSearch.getIns().getFilter().click();
 	Base.ha();
 	careProductSearch.getIns().getSelectAllInProductFilter().click();Base.ha();
 	careProductSearch.getIns().getCareInFilter().click();Base.ha();
 	Base.until(2);
-	Robot r=null;
-	try {
-		r =new Robot ();
-	} catch (AWTException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	r.keyPress(KeyEvent.VK_TAB);
-	r.keyRelease(KeyEvent.VK_TAB);
+	
 	careProductSearch.getIns().getDummy().click();
 	Base.ha();
 	careProductSearch.getIns().getCareFreedomPremium().click();
@@ -90,6 +85,7 @@ public void select_the_care_plan() {
 @When("verify the CKYC")
 public void verify_the_ckyc() {
 	Base.until(1);
+	
 	careCKYC.getIns().getPanNumber().sendKeys("GUNPD3683H");
 	careCKYC.getIns().getDOB().sendKeys("06/06/2002");
 	careCKYC.getIns().getCkycSubmitBtn().click();
@@ -154,8 +150,12 @@ public void enter_the_nominee_details() {
 	nomineePageElements.getIns().getRelation().click();
 	Base.ha();
 	nomineePageElements.getIns().getSpouse().click();
+	nomineePageElements.getIns().getAcNumber().sendKeys("98765456788888");
+	nomineePageElements.getIns().getIFSCNumber().sendKeys("SBIN0002196");
 	Base.ha();
+	
 	nomineePageElements.getIns().getNxtBtn().click();
+	
     
 }
 @Then("proposal created")

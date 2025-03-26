@@ -26,6 +26,22 @@ public class nomineePageElements {
 	
 	@FindBy(xpath="//span[text()=' SPOUSE ']")
 	WebElement spouse;
+	
+	@FindBy(xpath="(//input[@formcontrolname='bankAccountNumber'])[1]")
+	WebElement acNumber;
+	
+	@FindBy(xpath="(//input[@formcontrolname='bankIFSCCode'])[1]")
+	WebElement IFSCNumber;
+	
+	
+
+	public WebElement getAcNumber() {
+		return acNumber;
+	}
+
+	public WebElement getIFSCNumber() {
+		return IFSCNumber;
+	}
 
 	public WebElement getNxtBtn() {
 		return nxtBtn;
